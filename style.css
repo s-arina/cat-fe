@@ -1,0 +1,428 @@
+@font-face {
+  font-family: 'VCR_OSD_MONO';
+  src: url('/assets/VCR_OSD_MONO_1.001.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/Roboto-Medium.ttf');
+}
+
+/* ------------------------------ ALL */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  cursor: crosshair;
+}
+
+html {
+  min-height: 100vh;
+  overflow: auto;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  background-color: #f2f2f2;
+}
+
+#app {
+  height: 100vh;
+  width: 100%;
+}
+
+/* ------------------------------ ANIMATION */
+
+@keyframes moving {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(6px);
+  }
+}
+
+/* ------------------------------ START/GAME OVER SCREEN */
+
+#start-screen,
+#gameover-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  padding-bottom: 30px;
+}
+
+#title,
+#gameover-screen #title {
+  width: 800px;
+  font-family: 'VCR_OSD_MONO', 'Roboto', sans-serif;
+  font-size: 96px;
+  line-height: 100px;
+  text-align: center;
+  word-spacing: -40px;
+  word-wrap: break-word;
+  -webkit-text-fill-color: rgb(222, 179, 185);
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: rgb(156, 82, 114);
+  -webkit-animation: moving 5s infinite;
+  animation: moving 1.7s steps(2, end) infinite;
+}
+
+#title-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.banner {
+  width: 1885px;
+  margin-top: 5%;
+}
+
+/* https://codepen.io/seme332/pen/reJOwo */
+
+#start-screen #play-button,
+#gameover-screen #play-button {
+  width: 210px;
+  height: 55px;
+  margin: 50px;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  letter-spacing: 4px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  border: none;
+  border-radius: 45px;
+  text-decoration: none;
+  background-color: #f2f2f2;
+  color: rgb(156, 82, 114);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+}
+
+#start-screen #play-button:hover,
+#gameover-screen #play-button:hover {
+  background-color: rgb(222, 179, 185);
+  box-shadow: 0px 15px 20px rgb(222, 179, 185, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+#gameover-screen {
+  /* hidden until timer hits 0 */
+  display: none;
+}
+/* ------------------------------ FOOTER */
+
+#footer {
+  margin-top: auto;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  text-align: center;
+  color: rgb(156, 82, 114);
+  z-index: 3;
+}
+
+/* ------------------------------ PLAY GAME */
+
+#game {
+  /* UNCOMMENT none when finished */
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  min-height: 100%;
+  padding: 50px 50px 30px 50px;
+}
+
+#game h2 {
+  /* time */
+  font-family: 'VCR_OSD_MONO', 'Roboto', sans-serif;
+  font-size: 36px;
+  margin: 0 20px;
+  color: rgb(156, 82, 114);
+}
+
+#click-image {
+  position: relative;
+}
+
+.instructions {
+  position: absolute;
+  width: auto;
+  top: -7%;
+  width: 100%;
+  font-size: min(2vw, 18px);
+  font-family: 'VCR_OSD_MONO', 'Roboto', sans-serif;
+  word-spacing: -4px;
+  -webkit-text-fill-color: rgb(222, 179, 185);
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: rgb(156, 82, 114);
+  -webkit-animation: moving 5s infinite;
+  animation: moving 1.7s steps(2, end) infinite;
+  z-index: 1;
+}
+
+h3.differences,
+#differencesNum {
+  font-family: 'VCR_OSD_MONO', 'Roboto', sans-serif;
+  margin-top: 20px;
+  color: rgb(156, 82, 114);
+}
+
+#border {
+  margin: 25px auto;
+  max-height: 100%;
+  max-width: 300px;
+}
+
+/* ------------------------------ IMAGE */
+
+#images-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+#board {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#catfe,
+#divider img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#images {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+#hide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  border: none;
+}
+
+/* ------------------------------ DIFFERENCES */
+
+#mark001 {
+  height: 20px;
+  width: 20px;
+}
+
+.block001,
+.block002,
+.block003,
+.block004,
+.block005 {
+  position: absolute;
+}
+
+.button001,
+.button002,
+.button003,
+.button004,
+.button005 {
+  background-color: transparent;
+  border: none;
+}
+
+.block001 {
+  top: 14.5%;
+  left: 34%;
+}
+
+.button001 {
+  width: 19px;
+  height: 17px;
+}
+
+.block002 {
+  top: 44%;
+  left: 70.5%;
+}
+
+.button002 {
+  width: 22px;
+  height: 19px;
+}
+
+.block003 {
+  top: 54.5%;
+  left: 13%;
+}
+
+.button003 {
+  width: 20px;
+  height: 39px;
+}
+
+.block004 {
+  top: 82%;
+  left: 50%;
+}
+
+.button004 {
+  width: 59px;
+  height: 12px;
+}
+
+.block005 {
+  top: 88%;
+  left: 27%;
+}
+
+.button005 {
+  width: 18px;
+  height: 12px;
+}
+
+#disappear004 {
+  background-color: transparent;
+  border: none;
+  width: 59px;
+  height: 12px;
+  top: 462px;
+  left: 228px;
+}
+
+/* ------------------------------ REMAINING TRIES */
+
+#tries {
+  margin: 15px 0px 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#span1,
+#span2,
+#span3 {
+  margin: 5px;
+  display: inline-block;
+  text-align: center;
+  height: 12px;
+  width: 12px;
+  background-color: rgba(156, 108, 114, 0.4);
+  border-radius: 50%;
+}
+
+/* ------------------------------ WIN */
+
+#win {
+  /* UNCOMMENT none with finished */
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(242, 242, 242, 0.1);
+  backdrop-filter: blur(5px);
+  z-index: 3;
+}
+
+#win-message {
+  background-color: #f2f2f2;
+  height: 200px;
+  width: 400px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+#win-message-border {
+  position: absolute;
+  height: 170px;
+  margin: 0 auto;
+  width: 370px;
+  border: dashed 3px rgb(222, 179, 185);
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+#win-message h3 {
+  font-family: 'VCR_OSD_MONO', 'Roboto', sans-serif;
+  font-size: 48px;
+  margin: 32px 0px 0px 0px;
+  word-spacing: -10px;
+  -webkit-text-fill-color: rgb(222, 179, 185);
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: rgb(156, 82, 114);
+  -webkit-animation: moving 5s infinite;
+  animation: moving 1.7s steps(2, end) infinite;
+}
+
+#win #play-button {
+  width: 180px;
+  height: 47px;
+  margin-top: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  letter-spacing: 4px;
+  padding: 5px 10px 5px 10px;
+  border: none;
+  border-radius: 45px;
+  text-decoration: none;
+  background-color: #f2f2f2;
+  color: rgb(156, 82, 114);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+}
+
+#win #play-button:hover {
+  background-color: rgb(222, 179, 185);
+  box-shadow: 0px 15px 20px rgb(222, 179, 185, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+/* ------------------------------ TITLE SIZE MEDIA QUERY */
+
+@media only screen and (max-device-width: 500px) {
+  .banner {
+    margin-top: 35%;
+  }
+  #game {
+    padding: 20px;
+  }
+  #game h2 {
+    margin-top: auto;
+  }
+  #images {
+    gap: 10px;
+  }
+  #border {
+    width: 200px;
+  }
+  #start-screen #title,
+  #gameover-screen #title {
+    width: 384px;
+    font-size: 48px;
+    line-height: 52px;
+    word-spacing: -10px;
+  }
+}

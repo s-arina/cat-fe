@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <link rel="stylesheet" href="/style.css" />
+    <script defer src="/spotTheDiff.js"></script>
+    <link rel="shortcut icon" type="image" href="assets/favicon.ico" />
+    <title>Spot the Difference</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- START SCREEN -->
+      <div id="start-screen">
+        <img src="/assets/banner.png" class="banner" />
+        <div id="title-banner">
+          <div id="title"><p>SPOT THE DIFFERENCE</p></div>
+          <button type="button" id="play-button" onClick="startGame()">
+            PLAY
+          </button>
+        </div>
+        <div id="footer">
+          <h4>&copy; SARINA CHANG 2022</h4>
+        </div>
+      </div>
+
+      <!-- GAME OVER SCREEN -->
+      <div id="gameover-screen">
+        <img src="/assets/banner.png" class="banner" />
+        <div id="title-banner">
+          <div id="title">GAME OVER</div>
+          <button type="button" id="play-button" onClick="retryGame()">
+            RETRY
+          </button>
+        </div>
+        <div id="footer">
+          <h4>&copy; SARINA CHANG 2022</h4>
+        </div>
+      </div>
+
+      <!-- WIN MESSAGE -->
+      <div id="win">
+        <div id="win-message-border"></div>
+        <div id="win-message">
+          <h3>YOU WIN!</h3>
+          <button type="button" id="play-button" onClick="retryGame()">
+            REPLAY
+          </button>
+        </div>
+      </div>
+
+      <!-- GAME -->
+      <div id="game">
+        <h2><span id="time">90</span></h2>
+
+        <h3 class="differences">
+          DIFFERENCES:<span id="differencesNum">5</span>
+        </h3>
+        <div id="tries">
+          <span id="span1"></span>
+          <span id="span2"></span>
+          <span id="span3"></span>
+        </div>
+
+        <div id="images-container">
+          <div id="images">
+            <div id="click-image">
+              <div class="instructions">
+                <h3>CLICK ON THIS SIDE!</h3>
+              </div>
+              <div id="board">
+                <img src="/assets/1.png" id="catfe" />
+                <button id="hide" onClick="incorrect()" tabindex="-1"></button>
+
+                <div class="block001">
+                  <div id="disappear001">
+                    <button
+                      class="button001"
+                      onClick="correct001()"
+                      tabindex="-1"
+                    ></button>
+                  </div>
+                </div>
+
+                <div class="block002">
+                  <div id="disappear002">
+                    <button
+                      class="button002"
+                      onClick="correct002()"
+                      tabindex="-1"
+                    ></button>
+                  </div>
+                </div>
+
+                <div class="block003">
+                  <div id="disappear003">
+                    <button
+                      class="button003"
+                      onClick="correct003()"
+                      tabindex="-1"
+                    ></button>
+                  </div>
+                </div>
+
+                <div class="block004">
+                  <div id="disappear004">
+                    <button
+                      class="button004"
+                      onClick="correct004()"
+                      tabindex="-1"
+                    ></button>
+                  </div>
+                </div>
+
+                <div class="block005">
+                  <div id="disappear005">
+                    <button
+                      class="button005"
+                      onClick="correct005()"
+                      tabindex="-1"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="divider">
+              <img src="/assets/divider.png" />
+            </div>
+            <div id="not-click">
+              <img src="/assets/2.png" id="catfe" />
+            </div>
+          </div>
+        </div>
+
+        <img src="/assets/border.png" id="border" />
+        <div id="footer">
+          <h4>&copy; SARINA CHANG 2022</h4>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
